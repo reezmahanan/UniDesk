@@ -171,7 +171,7 @@ def generate_handoff_draft(
     # Create transcript excerpt
     transcript_lines = []
     for m in session.messages[-4:]:
-        role_label = "Student" if m.sender_role == MessageRole.USER else "Apex Bot"
+        role_label = "Student" if m.sender_role == MessageRole.USER else "UniDesk Bot"
         clean_text = m.content[:300]
         transcript_lines.append(f"{role_label}: {clean_text}")
     transcript_excerpt = "\n".join(transcript_lines)

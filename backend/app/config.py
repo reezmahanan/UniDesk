@@ -3,7 +3,7 @@ from typing import Optional, List
 import os
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "Apex — AI University Help Desk & Ticketing Platform"
+    PROJECT_NAME: str = "UniDesk — AI University Help Desk & Ticketing Platform"
     API_V1_STR: str = "/api"
     SECRET_KEY: str = "apex-university-super-secret-jwt-key-2026-change-in-production"
     ALGORITHM: str = "HS256"

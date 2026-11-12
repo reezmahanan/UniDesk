@@ -1,6 +1,6 @@
 export default {
   brand: {
-    name: 'Apex',
+    name: 'UniDesk',
     tagline: 'විශ්වවිද්‍යාල සහායක සහ ටිකට්පත් පද්ධතිය',
     institution: 'ශ්‍රී ලංකා විශ්වවිද්‍යාලය',
   },
@@ -29,8 +29,8 @@ export default {
     admin: 'පද්ධති පරිපාලක',
   },
   chat: {
-    title: 'Apex අධ්‍යයන AI සහායක',
-    disclaimer: 'Apex පිළිගත් විශ්වවිද්‍යාල ලේඛන සහ රෙගුලාසි මත පදනම්ව පිළිතුරු සපයයි.',
+    title: 'UniDesk අධ්‍යයන AI සහායක',
+    disclaimer: 'UniDesk පිළිගත් විශ්වවිද්‍යාල ලේඛන සහ රෙගුලාසි මත පදනම්ව පිළිතුරු සපයයි.',
     inputPlaceholder: 'ඇතුළත්වීම්, මහපොළ, LMS හෝ විභාග පිළිබඳව ප්‍රශ්නයක් අසන්න...',
     send: 'යවන්න',
     sources: 'සනාථ කළ මූලාශ්‍ර',

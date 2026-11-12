@@ -10,7 +10,7 @@
         <div class="w-14 h-14 rounded-2xl bg-[#800020] flex items-center justify-center mx-auto shadow-md shadow-[#800020]/25 text-white border-2 border-[#800020]">
           <Bot class="w-8 h-8" />
         </div>
-        <h1 class="text-2xl font-heading font-bold text-slate-900 tracking-tight">Apex University Portal</h1>
+        <h1 class="text-2xl font-heading font-bold text-slate-900 tracking-tight">UniDesk University Portal</h1>
         <p class="text-xs text-slate-600">AI University Help Desk & Ticketing Platform</p>
       </div>
 
@@ -90,7 +90,7 @@
       </div>
 
       <div class="text-center text-xs text-slate-600">
-        New student at Apex? 
+        New student at UniDesk? 
         <router-link to="/register" class="text-[#800020] hover:underline font-bold ml-1">Create Account</router-link>
       </div>
     </div>

@@ -4,7 +4,7 @@
     <div class="flex items-center gap-3">
       <div class="hidden sm:flex flex-col">
         <span class="text-xs font-bold text-[#800020] uppercase tracking-wider">
-          University of Sri Lanka • Apex Portal
+          University of Sri Lanka • UniDesk Portal
         </span>
         <span class="text-sm font-bold text-slate-800">
           {{ authStore.currentUser ? authStore.currentUser.full_name : 'Guest Session' }}

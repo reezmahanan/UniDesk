@@ -128,7 +128,7 @@ class RAGService:
         client = genai.Client(api_key=settings.GEMINI_API_KEY)
         
         system_instruction = (
-            "You are Apex, an AI assistant for a Sri Lankan university help desk. "
+            "You are UniDesk, an AI assistant for a Sri Lankan university help desk. "
             "Answer the student's question strictly and only using the provided university context below. "
             "Never fabricate citations, dates, or rules. If the context does not contain enough info, state that clearly. "
             "When citing a statement, include the [Source ID: <id>] tag. Do not claim 100% accuracy or zero hallucinations."

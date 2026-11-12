@@ -10,7 +10,7 @@
           <Bot class="w-8 h-8" />
         </div>
         <h1 class="text-2xl font-heading font-bold text-slate-900 tracking-tight">Student Registration</h1>
-        <p class="text-xs text-slate-600">Join the Apex AI University Help Desk & Ticketing Platform</p>
+        <p class="text-xs text-slate-600">Join the UniDesk AI University Help Desk & Ticketing Platform</p>
       </div>
 
       <div v-if="errorMessage" class="p-3.5 rounded-xl bg-rose-50 border border-rose-300 text-rose-800 text-xs flex items-center gap-2">

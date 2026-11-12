@@ -58,7 +58,7 @@
             <Bot class="w-8 h-8" />
           </div>
           <h2 class="text-xl font-heading font-bold text-slate-900">
-            Ayubowan! I'm Apex, your University Help Desk Assistant.
+            Ayubowan! I'm UniDesk, your University Help Desk Assistant.
           </h2>
           <p class="text-xs text-slate-600 leading-relaxed max-w-lg mx-auto font-medium">
             I search approved university documents and policies to provide grounded answers for admissions, Mahapola bursaries, IT accounts, and campus regulations.

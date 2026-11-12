@@ -1,14 +1,14 @@
-# Apex — AI University Help Desk & Ticketing Platform
+# UniDesk — AI University Help Desk & Ticketing Platform
 
 An enterprise-grade, full-stack AI help desk, document ingestion, and support ticketing platform tailored for higher education institutions in Sri Lanka.
 
-Apex preserves its signature **violet glassmorphic aesthetic**, responsive sidebar, dynamic dark/light themes, and real-time browser text-to-speech (TTS), while replacing prototype client-side stubs with a secure, production-ready architecture powered by **Vue 3, TypeScript, Vite, Tailwind CSS, FastAPI, SQLAlchemy, Alembic, PostgreSQL with pgvector, and Google Gemini with grounded Retrieval-Augmented Generation (RAG)**.
+UniDesk preserves its signature **violet glassmorphic aesthetic**, responsive sidebar, dynamic dark/light themes, and real-time browser text-to-speech (TTS), while replacing prototype client-side stubs with a secure, production-ready architecture powered by **Vue 3, TypeScript, Vite, Tailwind CSS, FastAPI, SQLAlchemy, Alembic, PostgreSQL with pgvector, and Google Gemini with grounded Retrieval-Augmented Generation (RAG)**.
 
 ---
 
 ## 📸 Visual Identity & Branding
 
-Apex features a premium, responsive glassmorphic user interface:
+UniDesk features a premium, responsive glassmorphic user interface:
 * **Dark Theme:** Deep violet gradient background (`#1d103c` to `#080811`), glowing purple accents (`#a855f7`), and frosted glass panels with backdrop blur (`rgba(26, 26, 46, 0.55)`).
 * **Light Theme:** High-contrast crisp lavender-white aesthetic with violet borders and glowing badges.
 * **Text-to-Speech (TTS):** Browser Web SpeechSynthesis API with speech toggle and multi-language voice detection.
@@ -18,11 +18,11 @@ Apex features a premium, responsive glassmorphic user interface:
 
 ## 🏛️ Project Purpose & University Support Areas
 
-Apex serves university students, academic staff, and administrative officers in Sri Lanka:
+UniDesk serves university students, academic staff, and administrative officers in Sri Lanka:
 
 1. **Admissions & UGC Registration:** Minimum GCE A/L stream requirements, Z-Score criteria, and UGC degree intake processes.
 2. **Academic Procedures:** Course enrollment windows, examination deferments, add/drop periods, and GPA grading regulations.
-3. **IT & LMS Support:** Campus WiFi setup (`Apex-Secure`), student Microsoft 365 webmail, and student LMS login resets.
+3. **IT & LMS Support:** Campus WiFi setup (`UniDesk-Secure`), student Microsoft 365 webmail, and student LMS login resets.
 4. **Mahapola & Bursary Verification:** UGC criteria, Grama Niladhari income certificate verification, Bank of Ceylon (BOC) student account linkage, and monthly stipend voucher collections.
 5. **Library Services:** Campus library opening hours, book reservations, cubicle bookings, and fine waivers.
 6. **General Campus Services:** Campus facilities, faculty locations, and administration contacts.
@@ -48,7 +48,7 @@ Apex serves university students, academic staff, and administrative officers in 
 
 ## 👥 Roles & Authorization Matrix
 
-Apex implements strict role-based access control (RBAC):
+UniDesk implements strict role-based access control (RBAC):
 
 | Capability | STUDENT | STAFF | ADMIN |
 | :--- | :---: | :---: | :---: |
@@ -93,10 +93,10 @@ Grounded Answer + Document Title + Page Number + Section Heading + Download Link
 ```
 
 * **Server-Side Citation Verification:** Citations returned in answers are strictly validated against active database chunk IDs. Hallucinated citation references are discarded on the server.
-* **Insufficient Information Fallback:** When no verified document covers the question, Apex clearly states that sufficient information is not available and prompts the user to create a support ticket.
+* **Insufficient Information Fallback:** When no verified document covers the question, UniDesk clearly states that sufficient information is not available and prompts the user to create a support ticket.
 * **Document Archiving:** When an admin archives a document, all of its chunks are excluded from student retrieval immediately.
 * **Scanned Document Detection:** When a scanned PDF with no extractable text is uploaded, the ingestion pipeline warns the administrator that text extraction failed and notes that OCR is a planned future capability.
-* **Offline / Demo AI Mode:** When `MOCK_AI_MODE=true` (or when `GEMINI_API_KEY` is not provided), Apex uses an intelligent deterministic grounded synthesizer that extracts facts directly from retrieved document chunks, clearly labelled as Demo AI mode.
+* **Offline / Demo AI Mode:** When `MOCK_AI_MODE=true` (or when `GEMINI_API_KEY` is not provided), UniDesk uses an intelligent deterministic grounded synthesizer that extracts facts directly from retrieved document chunks, clearly labelled as Demo AI mode.
 
 ---
 
@@ -104,7 +104,7 @@ Grounded Answer + Document Title + Page Number + Section Heading + Download Link
 
 ### 1. Student Handoff Flow
 1. If the chatbot cannot resolve an issue or if the student requires administrative intervention, the student clicks **"Create Support Ticket"**.
-2. Apex drafts a suggested **Subject**, **Issue Summary**, and routes to the appropriate **Department** (e.g. Welfare for Mahapola inquiries, IT for LMS locks).
+2. UniDesk drafts a suggested **Subject**, **Issue Summary**, and routes to the appropriate **Department** (e.g. Welfare for Mahapola inquiries, IT for LMS locks).
 3. The student reviews and edits the draft in a dedicated modal.
 4. The student explicitly checks or unchecks whether to include recent chat transcript excerpts.
 5. The ticket is submitted only upon explicit confirmation.
@@ -209,7 +209,7 @@ For local evaluation, four demonstration accounts are seeded with distinct permi
 
 ## 🧪 Automated Testing & Verification
 
-Apex includes a comprehensive automated test suite testing authorization, student isolation, department boundaries, internal note privacy, ticket transitions, and grounded RAG citations.
+UniDesk includes a comprehensive automated test suite testing authorization, student isolation, department boundaries, internal note privacy, ticket transitions, and grounded RAG citations.
 
 Run the test suite:
 ```bash

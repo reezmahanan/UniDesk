@@ -215,8 +215,8 @@ def init_db_data():
         doc2_text = (
             "APEX UNIVERSITY - CAMPUS IT SERVICES AND STUDENT LMS GUIDE\n\n"
             "1. Campus WiFi Setup:\n"
-            "Connect to the 'Apex-Secure' wireless network on campus. Authenticate using your student email (indexNumber@student.apex.edu.lk) and your portal password. "
-            "For guest access, connect to 'Apex-Guest' and complete SMS OTP verification.\n\n"
+            "Connect to the 'UniDesk-Secure' wireless network on campus. Authenticate using your student email (indexNumber@student.apex.edu.lk) and your portal password. "
+            "For guest access, connect to 'UniDesk-Guest' and complete SMS OTP verification.\n\n"
             "2. Student LMS and Webmail:\n"
             "Student email is hosted on Microsoft 365. LMS accounts provide lecture slides, assignment submissions, and exam results. "
             "If your LMS account is locked due to 3 consecutive failed login attempts, submit an IT support ticket or visit Admin Block Room 204 with your Student ID.\n\n"
@@ -245,7 +245,7 @@ def init_db_data():
         chunk3 = DocumentChunk(
             document_id=kdoc2.id,
             chunk_index=0,
-            content="Campus WiFi Configuration: Connect to 'Apex-Secure' using student email credentials (indexNumber@student.apex.edu.lk) and portal password. Guests can connect to 'Apex-Guest' using OTP verification.",
+            content="Campus WiFi Configuration: Connect to 'UniDesk-Secure' using student email credentials (indexNumber@student.apex.edu.lk) and portal password. Guests can connect to 'UniDesk-Guest' using OTP verification.",
             page_number=1,
             section_heading="Campus WiFi",
             token_count=30,
@@ -292,7 +292,7 @@ def init_db_data():
             {
                 "category": "it_support",
                 "question": "How do I connect to the secure campus WiFi network?",
-                "answer": "Connect to 'Apex-Secure' on your device. Enter your student email address (indexNumber@student.apex.edu.lk) and your portal password.",
+                "answer": "Connect to 'UniDesk-Secure' on your device. Enter your student email address (indexNumber@student.apex.edu.lk) and your portal password.",
                 "department_id": dept_map["IT"].id,
                 "source_reference": "IT Center Network Guide",
             },

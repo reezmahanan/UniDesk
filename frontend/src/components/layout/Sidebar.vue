@@ -13,7 +13,7 @@
         </div>
         <div v-if="!isCollapsed" class="flex flex-col">
           <span class="font-heading font-bold text-xl tracking-tight text-[#800020]">
-            Apex
+            UniDesk
           </span>
           <span class="text-xs text-slate-500 font-medium tracking-wide">University Help Desk</span>
         </div>

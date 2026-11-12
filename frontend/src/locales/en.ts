@@ -1,6 +1,6 @@
 export default {
   brand: {
-    name: 'Apex',
+    name: 'UniDesk',
     tagline: 'AI University Help Desk & Ticketing Platform',
     institution: 'University of Sri Lanka',
   },
@@ -29,8 +29,8 @@ export default {
     admin: 'System Admin',
   },
   chat: {
-    title: 'Apex Academic AI Assistant',
-    disclaimer: 'Apex searches approved university documents and policies to provide grounded answers. Always verify critical academic deadlines with the registrar.',
+    title: 'UniDesk Academic AI Assistant',
+    disclaimer: 'UniDesk searches approved university documents and policies to provide grounded answers. Always verify critical academic deadlines with the registrar.',
     inputPlaceholder: 'Ask a question about admissions, Mahapola, LMS, exams, or campus services...',
     send: 'Send',
     sources: 'Approved Sources',
