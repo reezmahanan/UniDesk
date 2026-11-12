@@ -1,33 +1,43 @@
 # GitHub Linguist overrides
-# Force GitHub to detect Vue.js and Python correctly
+# Tell GitHub which languages are actually used
 
-# Vue single-file components → Vue
-*.vue linguist-language=Vue
-
-# TypeScript → TypeScript
-*.ts linguist-language=TypeScript
-
-# Python files
-*.py linguist-language=Python
+# ── Core languages ─────────────────────────────────────────────────────────────
+*.vue       linguist-language=Vue        linguist-detectable=true
+*.py        linguist-language=Python     linguist-detectable=true
+*.ts        linguist-language=TypeScript linguist-detectable=true
 
 # ── Exclude legacy root files (old vanilla JS prototype) ──────────────────────
-# These are the old Apex-Bot HTML/JS/CSS files kept for reference only
 app.js              linguist-vendored=true
 chatbot-data.js     linguist-vendored=true
 index.html          linguist-vendored=true
 styles.css          linguist-vendored=true
 
-# ── Exclude generated / config boilerplate ────────────────────────────────────
-package-lock.json                   linguist-generated=true
-frontend/package-lock.json          linguist-generated=true
-frontend/index.html                 linguist-generated=true
-*.config.js                         linguist-generated=true
-*.config.ts                         linguist-generated=true
-tailwind.config.js                  linguist-generated=true
-postcss.config.js                   linguist-generated=true
-vite.config.ts                      linguist-generated=true
-vite.config.js                      linguist-generated=true
-tsconfig*.json                      linguist-generated=true
+# ── Exclude CSS (single stylesheet, not meaningful as a language) ─────────────
+frontend/src/styles/main.css    linguist-vendored=true
 
-# ── Exclude dist/build output ─────────────────────────────────────────────────
-frontend/dist/**                    linguist-generated=true
+# ── Exclude generated / config / build files ─────────────────────────────────
+package-lock.json                       linguist-generated=true
+frontend/package-lock.json              linguist-generated=true
+frontend/index.html                     linguist-generated=true
+frontend/vite.config.js                 linguist-generated=true
+frontend/vite.config.d.ts               linguist-generated=true
+frontend/postcss.config.js              linguist-generated=true
+frontend/tailwind.config.js             linguist-generated=true
+frontend/tsconfig.json                  linguist-generated=true
+frontend/tsconfig.node.json             linguist-generated=true
+frontend/tsconfig.tsbuildinfo           linguist-generated=true
+frontend/tsconfig.node.tsbuildinfo      linguist-generated=true
+*.tsbuildinfo                           linguist-generated=true
+*.d.ts                                  linguist-generated=true
+frontend/dist/**                        linguist-generated=true
+
+# ── Exclude docs/config formats ──────────────────────────────────────────────
+*.md                linguist-documentation=true
+*.txt               linguist-documentation=true
+*.ini               linguist-documentation=true
+*.yml               linguist-documentation=true
+*.yaml              linguist-documentation=true
+*.json              linguist-generated=true
+Dockerfile          linguist-vendored=true
+*.conf              linguist-vendored=true
+.env.example        linguist-vendored=true
