@@ -1,23 +1,33 @@
 # GitHub Linguist overrides
 # Force GitHub to detect Vue.js and Python correctly
 
-# Treat .vue files as Vue (not JS)
+# Vue single-file components → Vue
 *.vue linguist-language=Vue
 
-# Treat .py files as Python
+# TypeScript → TypeScript
+*.ts linguist-language=TypeScript
+
+# Python files
 *.py linguist-language=Python
 
-# Exclude lock files from language stats
-package-lock.json linguist-generated=true
-frontend/package-lock.json linguist-generated=true
+# ── Exclude legacy root files (old vanilla JS prototype) ──────────────────────
+# These are the old Apex-Bot HTML/JS/CSS files kept for reference only
+app.js              linguist-vendored=true
+chatbot-data.js     linguist-vendored=true
+index.html          linguist-vendored=true
+styles.css          linguist-vendored=true
 
-# Exclude config/boilerplate files from stats
-*.config.js linguist-generated=true
-*.config.ts linguist-generated=true
-tailwind.config.js linguist-generated=true
-postcss.config.js linguist-generated=true
-vite.config.ts linguist-generated=true
-tsconfig*.json linguist-generated=true
+# ── Exclude generated / config boilerplate ────────────────────────────────────
+package-lock.json                   linguist-generated=true
+frontend/package-lock.json          linguist-generated=true
+frontend/index.html                 linguist-generated=true
+*.config.js                         linguist-generated=true
+*.config.ts                         linguist-generated=true
+tailwind.config.js                  linguist-generated=true
+postcss.config.js                   linguist-generated=true
+vite.config.ts                      linguist-generated=true
+vite.config.js                      linguist-generated=true
+tsconfig*.json                      linguist-generated=true
 
-# Exclude dist/build output if accidentally committed
-frontend/dist/** linguist-generated=true
+# ── Exclude dist/build output ─────────────────────────────────────────────────
+frontend/dist/**                    linguist-generated=true
