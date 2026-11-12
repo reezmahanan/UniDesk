@@ -1,0 +1,23 @@
+# GitHub Linguist overrides
+# Force GitHub to detect Vue.js and Python correctly
+
+# Treat .vue files as Vue (not JS)
+*.vue linguist-language=Vue
+
+# Treat .py files as Python
+*.py linguist-language=Python
+
+# Exclude lock files from language stats
+package-lock.json linguist-generated=true
+frontend/package-lock.json linguist-generated=true
+
+# Exclude config/boilerplate files from stats
+*.config.js linguist-generated=true
+*.config.ts linguist-generated=true
+tailwind.config.js linguist-generated=true
+postcss.config.js linguist-generated=true
+vite.config.ts linguist-generated=true
+tsconfig*.json linguist-generated=true
+
+# Exclude dist/build output if accidentally committed
+frontend/dist/** linguist-generated=true
