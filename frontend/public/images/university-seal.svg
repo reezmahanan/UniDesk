@@ -1,0 +1,11 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="200" cy="200" r="190" stroke="#800020" stroke-width="4" stroke-opacity="0.08" stroke-dasharray="12 6" />
+  <circle cx="200" cy="200" r="170" stroke="#800020" stroke-width="2" stroke-opacity="0.06" />
+  <circle cx="200" cy="200" r="130" stroke="#800020" stroke-width="3" stroke-opacity="0.08" />
+  <!-- Central Emblem / Academic Open Book & Star -->
+  <path d="M200 130L200 240M200 170C180 160 140 160 120 170V230C140 220 180 220 200 230C220 220 260 220 280 230V170C260 160 220 160 200 170Z" stroke="#800020" stroke-width="4" stroke-opacity="0.1" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Torch / Flame -->
+  <path d="M200 110C205 120 215 125 210 135C200 145 190 140 200 110Z" fill="#800020" fill-opacity="0.12" />
+  <!-- Text Ring Path (Abstract representation) -->
+  <circle cx="200" cy="200" r="150" stroke="#800020" stroke-width="1.5" stroke-opacity="0.05" />
+</svg>

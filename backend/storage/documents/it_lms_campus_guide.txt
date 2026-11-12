@@ -1,0 +1,10 @@
+APEX UNIVERSITY - CAMPUS IT SERVICES AND STUDENT LMS GUIDE
+
+1. Campus WiFi Setup:
+Connect to the 'Apex-Secure' wireless network on campus. Authenticate using your student email (indexNumber@student.apex.edu.lk) and your portal password. For guest access, connect to 'Apex-Guest' and complete SMS OTP verification.
+
+2. Student LMS and Webmail:
+Student email is hosted on Microsoft 365. LMS accounts provide lecture slides, assignment submissions, and exam results. If your LMS account is locked due to 3 consecutive failed login attempts, submit an IT support ticket or visit Admin Block Room 204 with your Student ID.
+
+3. Main Campus Library Hours:
+The library operates Monday to Friday from 8:00 AM to 8:00 PM, and Saturdays from 8:30 AM to 5:00 PM. Closed on Sundays and Poya Days.

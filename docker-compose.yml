@@ -1,0 +1,58 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: apex_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: apex_university_db
+      POSTGRES_USER: apex_user
+      POSTGRES_PASSWORD: apex_secure_password_2026
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U apex_user -d apex_university_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: apex_backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://apex_user:apex_secure_password_2026@db:5432/apex_university_db
+      SECRET_KEY: apex-super-secret-jwt-key-2026-production-ready
+      MOCK_AI_MODE: "true"
+      GEMINI_API_KEY: ""
+      GEMINI_MODEL: gemini-1.5-flash
+      EMBEDDING_PROVIDER: gemini
+      EMBEDDING_MODEL: text-embedding-004
+    ports:
+      - "8000:8000"
+    volumes:
+      - backend_uploads:/app/storage/uploads
+      - backend_docs:/app/storage/documents
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: apex_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+      - "5173:80"
+
+volumes:
+  pgdata:
+  backend_uploads:
+  backend_docs:
