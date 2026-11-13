@@ -1,10 +1,22 @@
 APEX UNIVERSITY - CAMPUS IT SERVICES AND STUDENT LMS GUIDE
 
 1. Campus WiFi Setup:
-Connect to the 'UniDesk-Secure' wireless network on campus. Authenticate using your student email (indexNumber@student.apex.edu.lk) and your portal password. For guest access, connect to 'UniDesk-Guest' and complete SMS OTP verification.
+Connect to the 'UniDesk-Secure' wireless network on campus. Authenticate using your student email (indexNumber@student.apex.edu.lk) and your portal password. For guest access, connect to 'UniDesk-Guest' and complete SMS OTP verification. If you face connectivity issues, restart your device's WiFi adapter and try again. Persistent issues should be reported to the IT Help Desk at Admin Block Room 204.
 
 2. Student LMS and Webmail:
-Student email is hosted on Microsoft 365. LMS accounts provide lecture slides, assignment submissions, and exam results. If your LMS account is locked due to 3 consecutive failed login attempts, submit an IT support ticket or visit Admin Block Room 204 with your Student ID.
+Student email is hosted on Microsoft 365. LMS accounts provide lecture slides, assignment submissions, and exam results. If your LMS account is locked due to 3 consecutive failed login attempts, submit an IT support ticket or visit Admin Block Room 204 with your Student ID. Your default LMS password is your index number followed by '@Apex' (e.g., 2026SE048@Apex). You must change this on first login.
 
-3. Main Campus Library Hours:
+3. How to Reset LMS Password:
+Step 1: Go to lms.apex.edu.lk and click "Forgot Password".
+Step 2: Enter your student email (indexNumber@student.apex.edu.lk).
+Step 3: Check your student email inbox for a password reset link (valid for 30 minutes).
+Step 4: If you cannot access your email, visit Admin Block Room 204 with your Student ID for manual reset.
+
+4. Main Campus Library Hours:
 The library operates Monday to Friday from 8:00 AM to 8:00 PM, and Saturdays from 8:30 AM to 5:00 PM. Closed on Sundays and Poya Days.
+
+5. Student Portal Access:
+The UniDesk student portal is accessible at portal.apex.edu.lk. Use it to register courses, check grades, pay fees, download transcripts, and submit documents. For portal login issues, contact the IT Help Desk.
+
+6. IT Help Desk Contact:
+Email: helpdesk@apex.edu.lk | Phone: 011-2XXXXXXX ext. 204 | Location: Admin Block Room 204 | Hours: Monday-Friday 8:00 AM to 5:00 PM.
