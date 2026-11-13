@@ -1,228 +1,184 @@
 # UniDesk — AI University Help Desk & Ticketing Platform
 
-An enterprise-grade, full-stack AI help desk, document ingestion, and support ticketing platform tailored for higher education institutions in Sri Lanka.
-
-UniDesk preserves its signature **violet glassmorphic aesthetic**, responsive sidebar, dynamic dark/light themes, and real-time browser text-to-speech (TTS), while replacing prototype client-side stubs with a secure, production-ready architecture powered by **Vue 3, TypeScript, Vite, Tailwind CSS, FastAPI, SQLAlchemy, Alembic, PostgreSQL with pgvector, and Google Gemini with grounded Retrieval-Augmented Generation (RAG)**.
-
----
-
-## 📸 Visual Identity & Branding
-
-UniDesk features a premium, responsive glassmorphic user interface:
-* **Dark Theme:** Deep violet gradient background (`#1d103c` to `#080811`), glowing purple accents (`#a855f7`), and frosted glass panels with backdrop blur (`rgba(26, 26, 46, 0.55)`).
-* **Light Theme:** High-contrast crisp lavender-white aesthetic with violet borders and glowing badges.
-* **Text-to-Speech (TTS):** Browser Web SpeechSynthesis API with speech toggle and multi-language voice detection.
-* **Tri-Lingual Navigation:** Full interface and workflow translations for **English**, **Sinhala (සිංහල)**, and **Tamil (தமிழ்)**.
+> A full-stack AI-powered university support portal built for Sri Lankan university students.  
+> Built with **Vue 3 + FastAPI + Google Gemini AI**
 
 ---
 
-## 🏛️ Project Purpose & University Support Areas
+## 📌 About This Project
 
-UniDesk serves university students, academic staff, and administrative officers in Sri Lanka:
+**UniDesk** is a university help desk and ticketing system that I developed as a personal project to simulate how a real university student support portal could work in Sri Lanka.
 
-1. **Admissions & UGC Registration:** Minimum GCE A/L stream requirements, Z-Score criteria, and UGC degree intake processes.
-2. **Academic Procedures:** Course enrollment windows, examination deferments, add/drop periods, and GPA grading regulations.
-3. **IT & LMS Support:** Campus WiFi setup (`UniDesk-Secure`), student Microsoft 365 webmail, and student LMS login resets.
-4. **Mahapola & Bursary Verification:** UGC criteria, Grama Niladhari income certificate verification, Bank of Ceylon (BOC) student account linkage, and monthly stipend voucher collections.
-5. **Library Services:** Campus library opening hours, book reservations, cubicle bookings, and fine waivers.
-6. **General Campus Services:** Campus facilities, faculty locations, and administration contacts.
+Students can chat with an AI assistant that answers questions about Mahapola scholarships, LMS access, exam results, library hours, admissions requirements, and more — all grounded in official university documents. When the AI cannot help, students can raise a support ticket which is handled by department staff.
 
 ---
 
-## 🛠️ Technology Stack
+## ✨ Features
 
-| Layer | Technologies |
-| :--- | :--- |
-| **Frontend** | Vue 3 (Composition API), TypeScript, Vite 6, Vue Router 4, Pinia 2 |
-| **Styling & Icons** | Tailwind CSS 3, Lucide Icons for Vue (`lucide-vue-next`) |
-| **Backend API** | Python 3.11+, FastAPI, Pydantic v2 |
-| **ORM & Migrations** | SQLAlchemy 2.0, Alembic |
-| **Database** | PostgreSQL 16 with `pgvector` extension (with SQLite local dev compatibility) |
-| **AI Generation** | Google Gemini (`google-genai` / `gemini-1.5-flash`) + Grounded Mock AI Engine |
-| **Embeddings & Search** | Gemini Embeddings (`text-embedding-004`) + Deterministic Vector & BM25 Lexical Fallback |
-| **Document Processing** | `pypdf` (PDF extraction with scanned document detection) and `python-docx` (DOCX extraction) |
-| **Authentication & Security** | JWT tokens, Bcrypt password hashing, HttpOnly cookies, CSRF protection, In-memory rate limiting |
-| **Containerization** | Docker, Docker Compose, Nginx |
+- 🤖 **AI Chatbot** — Answers student questions using official university documents (RAG-based, no hallucinations)
+- 🎫 **Support Tickets** — Students raise tickets; staff respond and resolve them
+- 📢 **University Notices** — Important announcements from the university
+- 📚 **Knowledge Base** — Mahapola, LMS, exams, admissions, library docs
+- 🔐 **Role-Based Access** — Student / Staff / Admin with separate dashboards
+- 🌐 **Tri-Lingual** — English, Sinhala (සිංහල), Tamil (தமிழ்)
+- 🔊 **Text-to-Speech** — Read AI answers aloud
+- 📄 **Document Upload** — Admins upload PDF/DOCX; AI reads and indexes them
 
 ---
 
-## 👥 Roles & Authorization Matrix
+## 🛠️ Tech Stack
 
-UniDesk implements strict role-based access control (RBAC):
-
-| Capability | STUDENT | STAFF | ADMIN |
-| :--- | :---: | :---: | :---: |
-| Self-Registration (Public signup) | ✅ | ❌ | ❌ |
-| Browse Published FAQs, Notices & Services | ✅ | ✅ | ✅ |
-| Ask Grounded AI Chatbot & View Own Chat History | ✅ | ✅ | ✅ |
-| Submit & Manage Own Support Tickets | ✅ | ❌ (Own dept) | ✅ (All) |
-| View Public Ticket Replies & Post Responses | ✅ | ✅ | ✅ |
-| View Staff Internal Notes (Confidential) | ❌ **Strictly Hidden** | ✅ | ✅ |
-| Add Staff Internal Notes | ❌ | ✅ | ✅ |
-| Reassign Department or Assign Staff Officers | ❌ | ✅ | ✅ |
-| Access AI Ticket Summaries & AI Draft Replies | ❌ | ✅ | ✅ |
-| Upload & Archive Knowledge Documents | ❌ | ❌ | ✅ |
-| Manage Users & Department Affiliations | ❌ | ❌ | ✅ |
+| Part | Technology |
+|------|-----------|
+| Frontend | Vue 3, TypeScript, Vite, Tailwind CSS |
+| Backend | Python, FastAPI, SQLAlchemy |
+| Database | SQLite (dev) / PostgreSQL (production) |
+| AI | Google Gemini API + RAG (Retrieval-Augmented Generation) |
+| Auth | JWT tokens, Bcrypt password hashing |
+| Deploy | Docker, Docker Compose, Nginx |
 
 ---
 
-## 🤖 Grounded RAG & Citation Validation
+## 🚀 How to Run Locally
 
-The chatbot does not hallucinate arbitrary facts or claim 100% accuracy. It follows a Retrieval-Augmented Generation pipeline:
+### 1. Clone the repository
 
-```
-Student Inquiry 
-   │
-   ▼
-Active Knowledge Document Filter (PUBLISHED, non-expired only)
-   │
-   ▼
-Hybrid Search (Semantic Cosine Similarity + BM25 Lexical Overlap)
-   │
-   ▼
-Context Assembly (Top relevant text chunks)
-   │
-   ▼
-Gemini API / Grounded Mock AI Provider
-   │
-   ▼
-Server-Side Citation Validation (Citation IDs verified against retrieved chunks)
-   │
-   ▼
-Grounded Answer + Document Title + Page Number + Section Heading + Download Link
+```bash
+git clone https://github.com/reezmahanan/UniDesk.git
+cd UniDesk
 ```
 
-* **Server-Side Citation Verification:** Citations returned in answers are strictly validated against active database chunk IDs. Hallucinated citation references are discarded on the server.
-* **Insufficient Information Fallback:** When no verified document covers the question, UniDesk clearly states that sufficient information is not available and prompts the user to create a support ticket.
-* **Document Archiving:** When an admin archives a document, all of its chunks are excluded from student retrieval immediately.
-* **Scanned Document Detection:** When a scanned PDF with no extractable text is uploaded, the ingestion pipeline warns the administrator that text extraction failed and notes that OCR is a planned future capability.
-* **Offline / Demo AI Mode:** When `MOCK_AI_MODE=true` (or when `GEMINI_API_KEY` is not provided), UniDesk uses an intelligent deterministic grounded synthesizer that extracts facts directly from retrieved document chunks, clearly labelled as Demo AI mode.
+### 2. Start the Backend
+
+```bash
+cd backend
+
+# Create a virtual environment
+python -m venv venv
+
+# Activate it
+# Windows:
+.\venv\Scripts\activate
+# Mac/Linux:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the server
+uvicorn app.main:app --reload --port 8000
+```
+
+> ✅ The database is created and seeded automatically on first run.  
+> Backend runs at: **http://localhost:8000**  
+> API docs: **http://localhost:8000/docs**
 
 ---
 
-## 🔄 Chat-to-Ticket Handoff & Staff AI Assistance
+### 3. Start the Frontend
 
-### 1. Student Handoff Flow
-1. If the chatbot cannot resolve an issue or if the student requires administrative intervention, the student clicks **"Create Support Ticket"**.
-2. UniDesk drafts a suggested **Subject**, **Issue Summary**, and routes to the appropriate **Department** (e.g. Welfare for Mahapola inquiries, IT for LMS locks).
-3. The student reviews and edits the draft in a dedicated modal.
-4. The student explicitly checks or unchecks whether to include recent chat transcript excerpts.
-5. The ticket is submitted only upon explicit confirmation.
+Open a **new terminal**:
 
-### 2. Staff AI Assistance
-* **Staff Ticket Summary:** In the ticket workspace, staff officers can click "Summarize Issue" to generate a synthesized brief of the student's problem, key facts, and missing documentation.
-* **Staff Reply Draft:** Staff can click "Draft Reply" to produce a suggested response grounded in approved university policies. The draft is placed into an editable text box so staff can review, edit, and confirm before sending.
+```bash
+cd frontend
 
----
+# Install dependencies
+npm install
 
-## 💻 Quick Start & Deployment
+# Start the dev server
+npm run dev
+```
 
-### Option 1: Docker Compose (Recommended)
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/reezmahanan/Apex-Bot.git
-   cd Apex-Bot
-   ```
-
-2. Copy the environment configuration file:
-   ```bash
-   cp .env.example .env
-   ```
-
-3. Launch the complete platform (PostgreSQL with pgvector, FastAPI backend, and Nginx Vue frontend):
-   ```bash
-   docker compose up --build
-   ```
-
-4. Open your browser:
-   * **Frontend Application:** [http://localhost:5173](http://localhost:5173) or [http://localhost](http://localhost)
-   * **Interactive API Documentation (Swagger):** [http://localhost:8000/docs](http://localhost:8000/docs)
-   * **API OpenAPI Schema:** [http://localhost:8000/api/openapi.json](http://localhost:8000/api/openapi.json)
+> Frontend runs at: **http://localhost:5173**
 
 ---
 
-### Option 2: Local Development Setup
+### 4. Using Docker (Optional — Runs Everything Together)
 
-#### Backend Setup
+```bash
+# Copy environment file
+cp .env.example .env
 
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
+# Build and run everything
+docker compose up --build
+```
 
-2. Create and activate a Python virtual environment:
-   ```bash
-   python -m venv venv
-   # Windows:
-   .\venv\Scripts\activate
-   # macOS/Linux:
-   source venv/bin/activate
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Start the FastAPI server:
-   ```bash
-   uvicorn app.main:app --reload --port 8000
-   ```
-   *The database tables and demo content are initialized automatically on startup.*
-
-#### Frontend Setup
-
-1. In a separate terminal, navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start the Vite development server:
-   ```bash
-   npm run dev
-   ```
-
-4. Open [http://localhost:5173](http://localhost:5173) in your browser.
+> Opens at: **http://localhost**
 
 ---
 
-## 🔑 Pre-Configured Demo Accounts
+## 👤 Demo Login Accounts
 
-For local evaluation, four demonstration accounts are seeded with distinct permissions:
+Use these accounts to explore the platform:
 
-| Account | Email | Password | Role & Description |
-| :--- | :--- | :--- | :--- |
-| **Kasun Jayasundara** | `student@apex.edu.lk` | `student123` | **STUDENT** • Computing • Index: `2026/SE/048` |
-| **Sanduni Perera** | `sanduni@apex.edu.lk` | `student123` | **STUDENT** • Business • Index: `2026/BM/102` |
-| **Dr. Priyantha Alwis** | `staff@apex.edu.lk` | `staff123` | **STAFF** • Senior IT Support Officer |
-| **University Admin** | `admin@apex.edu.lk` | `admin123` | **ADMIN** • System & Knowledge Administrator |
+| Name | Email | Password | Role |
+|------|-------|----------|------|
+| Kasun Jayasundara | `student@apex.edu.lk` | `student123` | 🎓 Student |
+| Sanduni Perera | `sanduni@apex.edu.lk` | `student123` | 🎓 Student |
+| Dr. Priyantha Alwis | `staff@apex.edu.lk` | `staff123` | 👨‍💼 Staff |
+| University Admin | `admin@apex.edu.lk` | `admin123` | 🔑 Admin |
 
-*A one-click **"Demo Role"** switcher is integrated into the top bar during development so you can switch perspectives.*
-
----
-
+> 💡 You can also switch demo roles using the **Demo Role** button in the top bar.
 
 ---
 
-## 🔒 Security & Data Privacy
+## 🤖 How the AI Works
 
-* **Authorization on Every Operation:** Every protected endpoint (ticket views, document downloads, attachment retrieval, chat deletion) verifies ownership and role permissions in the backend.
-* **Internal Notes Protection:** Internal notes recorded by staff members are filtered out on the server and never sent in student API responses.
-* **Credential Protection:** AI API keys and database credentials are kept exclusively on the backend. No tokens or secrets are committed or exposed in frontend builds.
-* **Session Management:** Sensitive tokens are kept out of localStorage by utilizing secure HttpOnly cookies with SameSite lax protection and CSRF token verification for mutating requests.
-* **File Upload Hardening:** Server-side UUID filename generation, strict extension and MIME-type validation, size limits (<= 10MB), and path traversal prevention.
-* **Prompt Injection Resilience:** User queries and retrieved document chunks are treated as untrusted data wrapped in strict system boundaries.
+The chatbot uses a **RAG (Retrieval-Augmented Generation)** approach:
+
+1. Student asks a question
+2. System searches university documents for relevant information
+3. Retrieved content is passed to **Google Gemini AI**
+4. AI generates a grounded answer with document citations
+5. If no relevant document is found → suggests creating a support ticket
+
+This means the AI only answers from approved university documents — it does **not** make things up.
 
 ---
 
-## ⚠️ Known Limitations & Future Roadmap
+## 📂 Project Structure
 
-* **Scanned PDF OCR:** PDFs without embedded text layers generate a clear notification explaining that text could not be extracted. Tesseract / Cloud Vision OCR extraction is planned as a documented future upgrade.
-* **WebSockets / Live Updates:** Ticket updates and chat responses currently use standard authenticated REST endpoints. A WebSocket or SSE push notification layer can be added for live multi-agent ticket collaboration.
-* **External SIS Integration:** Simulated GPAs and credit totals from the previous client-side demo have been replaced with real database metrics. Live registrar API connections can be plugged into the student profile service via university LDAP / SIS connectors.
+```
+UniDesk/
+├── backend/               # FastAPI Python backend
+│   ├── app/
+│   │   ├── api/           # API route handlers
+│   │   ├── models/        # Database models
+│   │   ├── services/      # RAG, embeddings, file processing
+│   │   └── seed.py        # Demo data seeder
+│   ├── storage/documents/ # University knowledge documents
+│   └── requirements.txt
+│
+├── frontend/              # Vue 3 frontend
+│   └── src/
+│       ├── views/         # Pages (Chat, Tickets, Dashboard...)
+│       ├── components/    # Reusable components
+│       ├── stores/        # Pinia state management
+│       └── router/        # Vue Router
+│
+├── docker-compose.yml
+└── README.md
+```
+
+---
+
+## 📖 University Topics the AI Can Answer
+
+- 🏦 **Mahapola Scholarship** — How to collect vouchers, eligibility, BOC payment
+- 💻 **LMS / Student Portal** — Password reset, account locked, WiFi setup
+- 📝 **Examinations** — How to check results, re-sit exams, transcripts
+- 🎓 **Admissions** — A/L requirements, student ID, registration documents
+- 📚 **Library** — Opening hours, book reservations
+
+---
+
+## ⚠️ Note
+
+This is a **student project** built for learning purposes. The university name "Apex University" and all data used are fictional demo data.
+
+---
+
+## 👨‍💻 Developer
+
+**Reezmahanan**  
+GitHub: [@reezmahanan](https://github.com/reezmahanan)
